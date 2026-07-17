@@ -22,7 +22,6 @@ Then open:
 
 ## Deployment
 
-GitHub Pages publishes the repository root from `main`. The custom domain is
-added through a focused `CNAME` commit after the temporary Pages URL and DNS
-configuration have been verified. DNS and HTTPS are managed outside this
-repository.
+GitHub Pages publishes the repository root from `main`. The `CNAME` file
+declares `arenetto.app` as the canonical custom domain. DNS and HTTPS are
+managed outside this repository.
