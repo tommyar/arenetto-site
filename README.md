@@ -22,6 +22,7 @@ Then open:
 
 ## Deployment
 
-Pushes to `main` deploy the repository through the official GitHub Pages
-Actions workflow. The custom domain is declared in `CNAME`; DNS and HTTPS are
-managed outside this repository.
+GitHub Pages publishes the repository root from `main`. The custom domain is
+added through a focused `CNAME` commit after the temporary Pages URL and DNS
+configuration have been verified. DNS and HTTPS are managed outside this
+repository.
