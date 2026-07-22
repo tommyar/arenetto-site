@@ -3,51 +3,186 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Arenetto — Diatonic Accordion for iPhone and iPad</title>
-    <meta name="description" content="Arenetto is a responsive three-row diatonic accordion for iPhone and iPad.">
+    <title>Arenetto — Diatonic Accordion for iPhone, iPad, and Android</title>
+    <meta name="description" content="Arenetto is a responsive three-row diatonic accordion for iPhone, iPad, and Android, with authentic push-and-pull play, five registers, and no ads or tracking.">
+    <meta name="theme-color" content="#090a0b">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Arenetto — A diatonic accordion in your hands">
+    <meta property="og:description" content="A focused, expressive digital instrument for iPhone, iPad, and Android.">
+    <meta property="og:url" content="https://arenetto.app/">
+    <meta property="og:image" content="https://arenetto.app/assets/images/instrument-34.jpg">
+    <meta property="og:image:alt" content="Arenetto's three-row diatonic accordion performance surface">
     <link rel="canonical" href="https://arenetto.app/">
+    <link rel="icon" href="assets/images/app-icon.png" type="image/png">
     <link rel="stylesheet" href="assets/site.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Arenetto",
+        "applicationCategory": "MusicApplication",
+        "operatingSystem": "iOS, iPadOS, Android",
+        "description": "A responsive three-row diatonic accordion with authentic push-and-pull play and five registers.",
+        "url": "https://arenetto.app/",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="site-header">
-      <a class="wordmark" href="./" aria-label="Arenetto home">ARENETTO</a>
+      <a class="brand" href="./" aria-label="Arenetto home">
+        <img src="assets/images/app-icon.png" width="36" height="36" alt="">
+        <span>ARENETTO</span>
+      </a>
       <nav class="site-nav" aria-label="Primary navigation">
         <ul>
-          <li><a href="./" aria-current="page">Home</a></li>
-          <li><a href="privacy/">Privacy</a></li>
+          <li><a href="#instrument">Instrument</a></li>
+          <li><a href="#details">Features</a></li>
           <li><a href="support/">Support</a></li>
         </ul>
       </nav>
     </header>
 
-    <main>
+    <main id="main-content">
       <section class="hero" aria-labelledby="hero-title">
-        <p class="eyebrow">A digital instrument for iPhone and iPad</p>
-        <h1 id="hero-title">Arenetto</h1>
-        <p class="tagline">A refined three-row diatonic accordion for iPhone and iPad.</p>
-        <p class="lead">Arenetto is a focused digital instrument designed for responsive multitouch performance, authentic push-and-pull playing, multiple accordion registers, and configurable diatonic layouts.</p>
-        <p class="availability">Coming to the App Store</p>
+        <div class="hero-copy">
+          <p class="eyebrow">Diatonic accordion · iPhone, iPad &amp; Android</p>
+          <h1 id="hero-title">An instrument,<br>not a toy.</h1>
+          <p class="lead">Arenetto puts a responsive three-row button accordion under your fingertips—built for chords, fast passages, and the expressive change between push and pull.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#availability">Release status</a>
+            <a class="button button-secondary" href="#instrument">See the instrument</a>
+          </div>
+          <ul class="trust-list" aria-label="Product commitments">
+            <li>No ads</li>
+            <li>No account</li>
+            <li>No tracking</li>
+          </ul>
+        </div>
+        <div class="hero-mark" aria-hidden="true">
+          <img src="assets/images/app-icon.png" width="256" height="256" alt="">
+          <span class="hero-script">Arenetto</span>
+        </div>
       </section>
 
-      <section class="feature-section" aria-labelledby="features">
-        <h2 id="features">Made for expressive playing</h2>
-        <ul class="feature-grid">
-          <li><strong>Three-row layouts</strong><span>Choose between supported 31-button and 34-button diatonic arrangements.</span></li>
-          <li><strong>Push and pull</strong><span>Play distinct notes through responsive bellows-direction behavior.</span></li>
-          <li><strong>Five registers</strong><span>Move between bassoon, bandoneon, master, violin, and clarinet voices.</span></li>
-          <li><strong>Multitouch performance</strong><span>Play chords and fast passages on a direct, landscape-oriented surface.</span></li>
-          <li><strong>Flexible tunings</strong><span>Select from multiple diatonic tunings for different musical settings.</span></li>
-          <li><strong>Configurable labels</strong><span>Show note names and choose the accidental notation that suits you.</span></li>
-        </ul>
+      <section class="instrument-showcase" id="instrument" aria-labelledby="instrument-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Landscape-first performance</p>
+            <h2 id="instrument-title">Made to be played</h2>
+          </div>
+          <p>The interface stays out of your way: three tactile rows, direct register selection, and a bellows control designed for musical gestures.</p>
+        </div>
+        <figure class="instrument-frame">
+          <img src="assets/images/instrument-34.jpg" width="1920" height="1080" alt="Arenetto showing a 34-button, three-row diatonic accordion in the Master register" loading="eager">
+          <figcaption>34-button layout · G–C–F tuning · Master register</figcaption>
+        </figure>
+      </section>
+
+      <section class="experience" id="details" aria-labelledby="details-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Built around the player</p>
+            <h2 id="details-title">The essentials, tuned carefully</h2>
+          </div>
+          <p>Every control serves the instrument. Configuration is available when you need it and disappears when you play.</p>
+        </div>
+        <div class="feature-grid">
+          <article>
+            <span class="feature-number">01</span>
+            <h3>Responsive multitouch</h3>
+            <p>Play chords, rolls, and gliding passages across the grill with direct multi-finger control.</p>
+          </article>
+          <article>
+            <span class="feature-number">02</span>
+            <h3>Push and pull</h3>
+            <p>Change bellows direction at any moment to reach the instrument’s full set of notes.</p>
+          </article>
+          <article>
+            <span class="feature-number">03</span>
+            <h3>Five registers</h3>
+            <p>Shape your sound with Bassoon, Bandoneon, Master, Violin, and Clarinet voices.</p>
+          </article>
+          <article>
+            <span class="feature-number">04</span>
+            <h3>Your layout</h3>
+            <p>Choose 31 or 34 buttons, three tunings, adjustable spacing, and optional note labels.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="gallery" aria-labelledby="gallery-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Simple by design</p>
+            <h2 id="gallery-title">Set it once. Then play.</h2>
+          </div>
+          <p>Move naturally between the instrument, its registers, and a compact set of meaningful preferences.</p>
+        </div>
+        <div class="gallery-grid">
+          <figure class="gallery-featured">
+            <img src="assets/images/settings.jpg" width="1920" height="1080" alt="Arenetto settings for tuning, button count, note labels, notation, and button size" loading="lazy">
+            <figcaption>Focused settings</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/images/tunings.jpg" width="1920" height="1080" alt="Arenetto tuning selection with G–C–F, F–B-flat–E-flat, and E–A–D options" loading="lazy">
+            <figcaption>G–C–F, F–B♭–E♭, and E–A–D</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="availability-section" id="availability" aria-labelledby="availability-title">
+        <div class="availability-copy">
+          <p class="eyebrow">Release status</p>
+          <h2 id="availability-title">Coming to both major mobile platforms</h2>
+          <p>Arenetto 1.0 is preparing for release. The same focused instrument experience is built for Apple devices and Android.</p>
+        </div>
+        <div class="platform-grid">
+          <article>
+            <span class="platform-icon" aria-hidden="true">●</span>
+            <div>
+              <h3>iPhone &amp; iPad</h3>
+              <p>Launching soon on the App Store</p>
+            </div>
+          </article>
+          <article>
+            <span class="platform-icon platform-icon-play" aria-hidden="true">▶</span>
+            <div>
+              <h3>Android</h3>
+              <p>Launching soon on Google Play</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="privacy-callout" aria-labelledby="privacy-title">
+        <div>
+          <p class="eyebrow">Private by default</p>
+          <h2 id="privacy-title">Your music stays yours.</h2>
+        </div>
+        <div>
+          <p>Arenetto works without an account, advertising, analytics, or tracking. Your instrument preferences remain on your device.</p>
+          <a class="text-link" href="privacy/">Read the privacy policy <span aria-hidden="true">→</span></a>
+        </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p>© 2026 Arenetto. All rights reserved.</p>
+      <div>
+        <a class="footer-brand" href="./">Arenetto</a>
+        <p>A diatonic accordion in your hands.</p>
+      </div>
       <nav aria-label="Footer navigation">
-        <a href="privacy/">Privacy Policy</a>
+        <a href="privacy/">Privacy</a>
         <a href="support/">Support</a>
+        <a href="mailto:support@arenetto.app">Contact</a>
       </nav>
+      <p class="copyright">© 2026 Arenetto</p>
     </footer>
   </body>
 </html>
