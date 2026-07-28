@@ -8,8 +8,9 @@ cookies, tracking, forms, package dependencies, or remote UI assets.
 
 ## Content and assets
 
-- `index.html` is the product and release-status page for iPhone, iPad, and
-  Android.
+- `index.html` is the product and availability page for iPhone, iPad, and
+  Android. The iOS download action points to the verified public listing at
+  <https://apps.apple.com/us/app/arenetto/id6791795300>.
 - `privacy/` and `support/` are the canonical cross-platform policy and help
   pages linked from the apps.
 - `assets/images/` contains optimized copies of the production Arenetto icon
@@ -17,9 +18,10 @@ cookies, tracking, forms, package dependencies, or remote UI assets.
   `digitalAccordion` repository.
 - `robots.txt` and `sitemap.xml` expose the public pages to search engines.
 
-Store badges should only be added after the corresponding public listing URL
-has been verified. Until then, the homepage intentionally reports both
-platforms as launching soon.
+The App Store listing is public for iPhone and iPad. The homepage uses Apple's
+official download badge and Smart App Banner for Apple ID `6791795300`; the
+Android platform remains marked as in preparation until its Google Play URL is
+verified.
 
 ## Local preview
 
