@@ -14,7 +14,8 @@ cookies, tracking, forms, package dependencies, or remote UI assets.
 - `privacy/` and `support/` are the canonical cross-platform policy and help
   pages linked from the apps.
 - `assets/images/` contains optimized copies of the production Arenetto icon
-  and approved app screenshots. The source assets remain in the main
+  and approved app screenshots. It also contains the official Apple App Store
+  badge used by the homepage. The source assets remain in the main
   `digitalAccordion` repository.
 - `robots.txt` and `sitemap.xml` expose the public pages to search engines.
 
