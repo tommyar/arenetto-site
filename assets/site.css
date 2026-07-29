@@ -483,16 +483,45 @@ figcaption {
   color: var(--ivory-soft);
 }
 
-.pearl-buttons {
+.music-image {
+  position: relative;
   width: min(100%, 25rem);
-  aspect-ratio: 1.35;
+  margin: 0;
   justify-self: end;
-  background:
-    radial-gradient(circle, #faf2e3 0 27%, #d8cebd 28% 31%, #7a6a50 32% 34%, #211d18 35% 41%, transparent 42%) 0 0 / 5rem 5rem;
-  filter: drop-shadow(0 1.2rem 1rem rgba(0, 0, 0, 0.4));
-  mask-image: linear-gradient(90deg, transparent, #000 18%, #000);
-  opacity: 0.92;
-  transform: rotate(-4deg);
+  overflow: hidden;
+  border: 1px solid rgba(198, 151, 70, 0.38);
+  border-radius: 0.8rem;
+  background: var(--black-deep);
+  box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.42);
+  transform: rotate(-2deg);
+}
+
+.music-image::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(198, 151, 70, 0.12), transparent 45%, rgba(0, 0, 0, 0.28));
+  content: "";
+  pointer-events: none;
+}
+
+.music-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.music-image figcaption {
+  position: absolute;
+  right: 0.8rem;
+  bottom: 0.7rem;
+  z-index: 1;
+  margin: 0;
+  color: var(--ivory-soft);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .privacy-strip {
@@ -847,10 +876,9 @@ figcaption {
 
   .music-panel { padding: 2rem 1.35rem 1.35rem; }
 
-  .pearl-buttons {
+  .music-image {
     justify-self: center;
     width: min(100%, 22rem);
-    mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent);
   }
 
   .privacy-strip { gap: 2rem; }
