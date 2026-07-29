@@ -169,6 +169,8 @@ def main():
         errors.append("download router must not accept arbitrary query redirects")
     if "download-redirect-pending" in download_script:
         errors.append("download router must not hide the fallback during a store handoff")
+    if "isEmbeddedBrowser" not in download_script or "!isEmbeddedBrowser" not in download_script:
+        errors.append("download router must preserve the fallback in embedded social browsers")
 
     if errors:
         for error in errors:
