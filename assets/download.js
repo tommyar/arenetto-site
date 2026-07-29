@@ -1,23 +1,16 @@
 (() => {
   "use strict";
 
-  const page = document.body;
-  const source = page.dataset.downloadSource || "download";
-  const iosURL = page.dataset.iosUrl;
-  const androidURL = page.dataset.androidUrl;
-  const androidAvailable = page.dataset.androidAvailable === "true";
-  const iosLinks = document.querySelectorAll('[data-store="ios"]');
-  const androidLinks = document.querySelectorAll('[data-store="android"]');
-
+  const shell = document.documentElement;
+  const source = shell.dataset.downloadSource || "download";
+  const iosURL = shell.dataset.iosUrl;
+  const androidURL = shell.dataset.androidUrl;
+  const androidAvailable = shell.dataset.androidAvailable === "true";
   const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent)
     || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
   const isAndroid = /Android/i.test(navigator.userAgent);
-
-  iosLinks.forEach((link) => {
-    if (iosURL) link.href = iosURL;
-  });
-
   let resolvedAndroidURL = androidURL;
+
   if (androidURL && source !== "download") {
     const trackedAndroidURL = new URL(androidURL);
     trackedAndroidURL.searchParams.set("utm_source", source);
@@ -26,30 +19,53 @@
     resolvedAndroidURL = trackedAndroidURL.toString();
   }
 
-  androidLinks.forEach((link) => {
-    if (androidAvailable && resolvedAndroidURL) {
-      link.href = resolvedAndroidURL;
-      link.classList.remove("is-disabled");
-      link.removeAttribute("aria-disabled");
-      const caption = link.querySelector("[data-android-caption]");
-      if (caption) caption.textContent = "Download for Android";
-    } else {
-      link.classList.add("is-disabled");
-      link.setAttribute("aria-disabled", "true");
-      link.addEventListener("click", (event) => event.preventDefault());
-    }
-  });
+  const shouldRedirect = Boolean(
+    (isIOS && iosURL)
+    || (isAndroid && androidAvailable && resolvedAndroidURL),
+  );
 
-  const androidStatus = document.querySelector("[data-android-status]");
-  if (androidStatus && androidAvailable) {
-    androidStatus.textContent = "Available now on Google Play.";
+  // Add this before the body is parsed so a smart-link visitor does not see
+  // the fallback page flash before the store navigation begins.
+  if (shouldRedirect) {
+    shell.classList.add("download-redirect-pending");
+    window.location.replace(isIOS ? iosURL : resolvedAndroidURL);
+    window.setTimeout(() => shell.classList.remove("download-redirect-pending"), 1500);
   }
 
-  if (isIOS && iosURL) {
-    window.location.replace(iosURL);
-  } else if (isAndroid && androidAvailable && resolvedAndroidURL) {
-    window.location.replace(resolvedAndroidURL);
+  const initializePage = () => {
+    const iosLinks = document.querySelectorAll('[data-store="ios"]');
+    const androidLinks = document.querySelectorAll('[data-store="android"]');
+
+    iosLinks.forEach((link) => {
+      if (iosURL) link.href = iosURL;
+    });
+
+    androidLinks.forEach((link) => {
+      if (androidAvailable && resolvedAndroidURL) {
+        link.href = resolvedAndroidURL;
+        link.classList.remove("is-disabled");
+        link.removeAttribute("aria-disabled");
+        link.setAttribute("aria-label", "Download Arenetto from Google Play");
+        const caption = link.querySelector("[data-android-caption]");
+        if (caption) caption.textContent = "Download for Android";
+      } else {
+        link.classList.add("is-disabled");
+        link.setAttribute("aria-disabled", "true");
+        link.addEventListener("click", (event) => event.preventDefault());
+      }
+    });
+
+    const androidStatus = document.querySelector("[data-android-status]");
+    if (androidStatus && androidAvailable) {
+      androidStatus.textContent = "Available now on Google Play.";
+    }
+
+    if (!shouldRedirect) shell.classList.add("download-page-ready");
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializePage, { once: true });
   } else {
-    document.documentElement.classList.add("download-page-ready");
+    initializePage();
   }
 })();

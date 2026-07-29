@@ -3,13 +3,16 @@
 Static public website for Arenetto, including the canonical privacy policy and
 support information published at [arenetto.app](https://arenetto.app).
 
-The site uses semantic HTML and CSS only. It has no JavaScript, analytics,
-cookies, tracking, forms, package dependencies, or remote UI assets.
+The public pages use semantic HTML and CSS. The download and social routes use
+one small vanilla JavaScript router for device-aware store navigation; there
+are no analytics, cookies, tracking scripts, forms, package dependencies, or
+remote UI assets.
 
 ## Content and assets
 
-- `index.html` is the product and availability page for iPhone, iPad, and
-  Android. The iOS download action points to the verified public listing at
+- `index.html` is the product and availability page for iPhone and iPad, with
+  Android clearly marked as in preparation. The iOS download action points to
+  the verified public listing at
   <https://apps.apple.com/us/app/arenetto/id6791795300>.
 - `privacy/` and `support/` are the canonical cross-platform policy and help
   pages linked from the apps.
@@ -47,6 +50,14 @@ Then open:
 - `http://localhost:8080/`
 - `http://localhost:8080/privacy/`
 - `http://localhost:8080/support/`
+
+## Checks
+
+Run the dependency-free structural checks before committing:
+
+```sh
+python3 scripts/check-site.py
+```
 
 ## Deployment
 
