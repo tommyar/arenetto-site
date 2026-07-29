@@ -611,8 +611,6 @@ figcaption {
 
 .not-found-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
 
-.download-redirect-pending body { visibility: hidden; }
-
 @media (max-width: 58rem) {
   .hero { grid-template-columns: 1fr; min-height: 0; }
   .hero-copy { max-width: 46rem; }

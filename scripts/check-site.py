@@ -167,6 +167,8 @@ def main():
         errors.append("download router has no store redirect")
     if "window.location.search" in download_script:
         errors.append("download router must not accept arbitrary query redirects")
+    if "download-redirect-pending" in download_script:
+        errors.append("download router must not hide the fallback during a store handoff")
 
     if errors:
         for error in errors:

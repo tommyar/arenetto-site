@@ -24,12 +24,8 @@
     || (isAndroid && androidAvailable && resolvedAndroidURL),
   );
 
-  // Add this before the body is parsed so a smart-link visitor does not see
-  // the fallback page flash before the store navigation begins.
   if (shouldRedirect) {
-    shell.classList.add("download-redirect-pending");
     window.location.replace(isIOS ? iosURL : resolvedAndroidURL);
-    window.setTimeout(() => shell.classList.remove("download-redirect-pending"), 1500);
   }
 
   const initializePage = () => {
