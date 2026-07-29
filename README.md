@@ -13,6 +13,10 @@ cookies, tracking, forms, package dependencies, or remote UI assets.
   <https://apps.apple.com/us/app/arenetto/id6791795300>.
 - `privacy/` and `support/` are the canonical cross-platform policy and help
   pages linked from the apps.
+- `download/` is the device-aware download page. `/instagram/`, `/facebook/`,
+  `/youtube/`, and `/tiktok/` are clean social routes that use the matching
+  App Store campaign link and add matching Google Play UTM parameters when the
+  Android listing is public.
 - `assets/images/` contains optimized copies of the production Arenetto icon
   and approved app screenshots. It also contains the official Apple App Store
   badge used by the homepage. The source assets remain in the main
@@ -23,6 +27,12 @@ The App Store listing is public for iPhone and iPad. The homepage uses Apple's
 official download badge and Smart App Banner for Apple ID `6791795300`; the
 Android platform remains marked as in preparation until its Google Play URL is
 verified.
+
+The smart-link pages intentionally do not add analytics, cookies, or tracking
+scripts. Attribution is passed to Apple through App Store Connect campaign
+links and to Google Play through `utm_source`, `utm_medium`, and
+`utm_campaign`. When the Android listing is public, change
+`data-android-available="false"` to `true` in the five download route pages.
 
 ## Local preview
 

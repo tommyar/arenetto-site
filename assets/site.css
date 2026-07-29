@@ -470,6 +470,105 @@ figcaption {
   background: var(--surface-soft);
 }
 
+/* Smart download pages */
+.download-page {
+  display: grid;
+  align-content: center;
+  width: min(calc(100% - 3rem), 42rem);
+  min-height: calc(100vh - 5.25rem);
+  padding-block: clamp(3rem, 9vw, 7rem);
+}
+
+.download-panel {
+  padding: clamp(1.5rem, 5vw, 3.5rem);
+  border: 1px solid var(--border-brass);
+  border-radius: 0.8rem;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.035), transparent 48%),
+    var(--surface);
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.38);
+}
+
+.download-panel h1 {
+  max-width: 12ch;
+  margin-bottom: 1rem;
+  font-size: clamp(2.8rem, 8vw, 5.4rem);
+}
+
+.download-intro {
+  margin: 0;
+  color: #c5c1b8;
+  font-size: clamp(1.05rem, 2.4vw, 1.2rem);
+}
+
+.download-actions {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.store-button {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  min-height: 4.5rem;
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--border-brass);
+  border-radius: 0.5rem;
+  background: #0b0c0d;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.store-button:hover {
+  border-color: var(--brass-bright);
+  background: var(--surface-soft);
+  color: var(--text);
+}
+
+.store-button img { width: 9rem; }
+
+.store-button-mark {
+  display: grid;
+  flex: 0 0 2.65rem;
+  place-items: center;
+  width: 2.65rem;
+  height: 2.65rem;
+  border: 1px solid var(--border-brass);
+  border-radius: 0.5rem;
+  color: var(--brass-bright);
+  font-size: 1.1rem;
+}
+
+.store-button-copy {
+  display: grid;
+  gap: 0.08rem;
+}
+
+.store-button-copy strong { font-size: 1rem; }
+.store-button-copy small { color: var(--text-muted); font-size: 0.82rem; }
+
+.store-button.is-disabled {
+  cursor: not-allowed;
+  border-color: var(--border);
+  opacity: 0.58;
+}
+
+.store-button.is-disabled:hover {
+  background: #0b0c0d;
+  color: var(--text);
+}
+
+.download-status,
+.download-fineprint {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.download-status { margin: 1.25rem 0 0; }
+.download-fineprint { margin: 2rem 0 0; }
+.download-back { display: inline-block; margin-top: 1.5rem; font-weight: 700; text-decoration: none; }
+
 @media (max-width: 58rem) {
   .hero { grid-template-columns: 1fr; min-height: 0; }
   .hero-copy { max-width: 46rem; }
@@ -501,6 +600,8 @@ figcaption {
   .platform-grid article { align-items: flex-start; }
   .site-footer { grid-template-columns: 1fr; }
   .copyright { grid-column: auto; }
+  .download-page { width: min(calc(100% - 2rem), var(--content-width)); }
+  .download-panel { padding: 1.35rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
