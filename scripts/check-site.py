@@ -16,7 +16,16 @@ SOCIAL_CAMPAIGNS = {
     "youtube": "Arenetto YouTube",
     "tiktok": "Arenetto TikTok",
 }
-ROUTES = ["index.html", "download/index.html", "privacy/index.html", "support/index.html"]
+ROUTES = [
+    "index.html",
+    "download/index.html",
+    "privacy/index.html",
+    "support/index.html",
+    "es/index.html",
+    "es/download/index.html",
+    "es/privacy/index.html",
+    "es/support/index.html",
+]
 
 
 class Document(HTMLParser):
