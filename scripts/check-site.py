@@ -140,8 +140,8 @@ def main():
         if campaign.replace(" ", "%20") not in document.html_attrs.get("data-ios-url", ""):
             errors.append(f"missing Apple campaign token on {source}")
         if source == "instagram":
-            if document.html_attrs.get("data-auto-redirect-ios") != "true":
-                errors.append("Instagram must redirect iOS directly to the App Store")
+            if "data-auto-redirect-ios" in document.html_attrs:
+                errors.append("Instagram must not auto-redirect inside its embedded browser")
             if not document.html_attrs.get("data-ios-url", "").startswith(
                 "https://apps.apple.com/us/app/arenetto/id6791795300"
             ):
@@ -187,10 +187,12 @@ def main():
         errors.append("download router must not hide the fallback during a store handoff")
     if "isEmbeddedBrowser" not in download_script or "!isEmbeddedBrowser" not in download_script:
         errors.append("download router must preserve the fallback in embedded social browsers")
-    if "autoRedirectIOS" not in download_script:
-        errors.append("download router has no per-route embedded iOS redirect support")
+    if "autoRedirectIOS" in download_script:
+        errors.append("download router must not force embedded iOS App Store redirects")
     if 'link.target = "_blank"' not in download_script:
         errors.append("download router has no external HTTPS fallback for embedded iOS browsers")
+    if 'link.hidden = true' not in download_script:
+        errors.append("download router must hide the blocked Instagram App Store action")
 
     if errors:
         for error in errors:

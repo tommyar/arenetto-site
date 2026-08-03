@@ -6,7 +6,6 @@
   const iosURL = shell.dataset.iosUrl;
   const androidURL = shell.dataset.androidUrl;
   const androidAvailable = shell.dataset.androidAvailable === "true";
-  const autoRedirectIOS = shell.dataset.autoRedirectIos === "true";
   const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent)
     || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
   const isAndroid = /Android/i.test(navigator.userAgent);
@@ -23,8 +22,10 @@
   }
 
   const shouldRedirect = Boolean(
-    (isIOS && iosURL && (!isEmbeddedBrowser || autoRedirectIOS))
-    || (!isEmbeddedBrowser && isAndroid && androidAvailable && resolvedAndroidURL),
+    !isEmbeddedBrowser && (
+      (isIOS && iosURL)
+      || (isAndroid && androidAvailable && resolvedAndroidURL)
+    ),
   );
 
   if (shouldRedirect) {
@@ -42,6 +43,10 @@
       if (isIOS && isEmbeddedBrowser) {
         link.target = "_blank";
         link.rel = "noopener external";
+      }
+
+      if (source === "instagram" && isIOS && isEmbeddedBrowser) {
+        link.hidden = true;
       }
     });
 
