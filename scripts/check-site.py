@@ -180,6 +180,10 @@ def main():
         errors.append("download router must not hide the fallback during a store handoff")
     if "isEmbeddedBrowser" not in download_script or "!isEmbeddedBrowser" not in download_script:
         errors.append("download router must preserve the fallback in embedded social browsers")
+    if '"itms-apps://apps.apple.com/"' not in download_script:
+        errors.append("download router has no native App Store handoff for embedded iOS browsers")
+    if 'document.visibilityState === "visible"' not in download_script:
+        errors.append("download router has no HTTPS fallback after a blocked native App Store handoff")
 
     if errors:
         for error in errors:

@@ -11,6 +11,10 @@
   const isAndroid = /Android/i.test(navigator.userAgent);
   const isEmbeddedBrowser = /Instagram|FBAN|FBAV|FBIOS|TikTok|BytedanceWebview|musical_ly|YouTube/i
     .test(navigator.userAgent);
+  const iosAppURL = iosURL?.replace(
+    /^https:\/\/apps\.apple\.com\//,
+    "itms-apps://apps.apple.com/",
+  );
   let resolvedAndroidURL = androidURL;
 
   if (androidURL && source !== "download") {
@@ -37,7 +41,23 @@
     const androidLinks = document.querySelectorAll('[data-store="android"]');
 
     iosLinks.forEach((link) => {
-      if (iosURL) link.href = iosURL;
+      if (!iosURL) return;
+
+      link.href = iosURL;
+
+      if (isIOS && isEmbeddedBrowser && iosAppURL) {
+        link.href = iosAppURL;
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+          window.location.assign(iosAppURL);
+
+          window.setTimeout(() => {
+            if (document.visibilityState === "visible") {
+              window.location.assign(iosURL);
+            }
+          }, 1500);
+        });
+      }
     });
 
     androidLinks.forEach((link) => {
