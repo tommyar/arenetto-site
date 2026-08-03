@@ -6,15 +6,12 @@
   const iosURL = shell.dataset.iosUrl;
   const androidURL = shell.dataset.androidUrl;
   const androidAvailable = shell.dataset.androidAvailable === "true";
+  const autoRedirectIOS = shell.dataset.autoRedirectIos === "true";
   const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent)
     || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
   const isAndroid = /Android/i.test(navigator.userAgent);
   const isEmbeddedBrowser = /Instagram|FBAN|FBAV|FBIOS|TikTok|BytedanceWebview|musical_ly|YouTube/i
     .test(navigator.userAgent);
-  const iosAppURL = iosURL?.replace(
-    /^https:\/\/apps\.apple\.com\//,
-    "itms-apps://apps.apple.com/",
-  );
   let resolvedAndroidURL = androidURL;
 
   if (androidURL && source !== "download") {
@@ -26,10 +23,8 @@
   }
 
   const shouldRedirect = Boolean(
-    !isEmbeddedBrowser && (
-      (isIOS && iosURL)
-      || (isAndroid && androidAvailable && resolvedAndroidURL)
-    ),
+    (isIOS && iosURL && (!isEmbeddedBrowser || autoRedirectIOS))
+    || (!isEmbeddedBrowser && isAndroid && androidAvailable && resolvedAndroidURL),
   );
 
   if (shouldRedirect) {
@@ -44,19 +39,9 @@
       if (!iosURL) return;
 
       link.href = iosURL;
-
-      if (isIOS && isEmbeddedBrowser && iosAppURL) {
-        link.href = iosAppURL;
-        link.addEventListener("click", (event) => {
-          event.preventDefault();
-          window.location.assign(iosAppURL);
-
-          window.setTimeout(() => {
-            if (document.visibilityState === "visible") {
-              window.location.assign(iosURL);
-            }
-          }, 1500);
-        });
+      if (isIOS && isEmbeddedBrowser) {
+        link.target = "_blank";
+        link.rel = "noopener external";
       }
     });
 

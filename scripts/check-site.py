@@ -139,6 +139,13 @@ def main():
             errors.append(f"unexpected Android destination on {source}")
         if campaign.replace(" ", "%20") not in document.html_attrs.get("data-ios-url", ""):
             errors.append(f"missing Apple campaign token on {source}")
+        if source == "instagram":
+            if document.html_attrs.get("data-auto-redirect-ios") != "true":
+                errors.append("Instagram must redirect iOS directly to the App Store")
+            if not document.html_attrs.get("data-ios-url", "").startswith(
+                "https://apps.apple.com/us/app/arenetto/id6791795300"
+            ):
+                errors.append("Instagram must use the canonical App Store destination")
         if "../assets/download.js" not in " ".join(document.scripts):
             errors.append(f"missing download router on {source}")
         if "role=\"status\"" not in path.read_text(encoding="utf-8"):
@@ -180,10 +187,10 @@ def main():
         errors.append("download router must not hide the fallback during a store handoff")
     if "isEmbeddedBrowser" not in download_script or "!isEmbeddedBrowser" not in download_script:
         errors.append("download router must preserve the fallback in embedded social browsers")
-    if '"itms-apps://apps.apple.com/"' not in download_script:
-        errors.append("download router has no native App Store handoff for embedded iOS browsers")
-    if 'document.visibilityState === "visible"' not in download_script:
-        errors.append("download router has no HTTPS fallback after a blocked native App Store handoff")
+    if "autoRedirectIOS" not in download_script:
+        errors.append("download router has no per-route embedded iOS redirect support")
+    if 'link.target = "_blank"' not in download_script:
+        errors.append("download router has no external HTTPS fallback for embedded iOS browsers")
 
     if errors:
         for error in errors:
