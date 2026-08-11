@@ -10,6 +10,7 @@ import xml.etree.ElementTree as ET
 
 
 ROOT = Path(__file__).resolve().parents[1]
+ANDROID_URL = "https://play.google.com/store/apps/details?id=com.tomasarenas.arenetto"
 SOCIAL_CAMPAIGNS = {
     "instagram": "Arenetto Instagram",
     "facebook": "Arenetto Facebook",
@@ -131,12 +132,14 @@ def main():
         errors.extend(check_local_references(path, document))
         if document.html_attrs.get("data-download-source") != source:
             errors.append(f"wrong source on {source}")
-        if document.html_attrs.get("data-android-available") != "false":
-            errors.append(f"Android must remain disabled on {source}")
+        if document.html_attrs.get("data-android-available") != "true":
+            errors.append(f"Android must be enabled on {source}")
         if not document.html_attrs.get("data-ios-url", "").startswith("https://apps.apple.com/"):
             errors.append(f"unexpected iOS destination on {source}")
-        if document.html_attrs.get("data-android-url") != "https://play.google.com/store/apps/details?id=com.tomasarenas.arenetto":
+        if document.html_attrs.get("data-android-url") != ANDROID_URL:
             errors.append(f"unexpected Android destination on {source}")
+        if not any(link.startswith(ANDROID_URL) for link in document.links):
+            errors.append(f"missing static Android destination on {source}")
         if campaign.replace(" ", "%20") not in document.html_attrs.get("data-ios-url", ""):
             errors.append(f"missing Apple campaign token on {source}")
         if source == "instagram":
@@ -152,11 +155,29 @@ def main():
             errors.append(f"missing live Android status on {source}")
 
     download = documents.get("download/index.html")
-    if download is not None:
+    for route in ("download/index.html", "es/download/index.html"):
+        download = documents.get(route)
+        if download is None:
+            continue
         if download.html_attrs.get("data-download-source") != "download":
-            errors.append("wrong source on download")
-        if download.html_attrs.get("data-android-available") != "false":
-            errors.append("Android must remain disabled on download")
+            errors.append(f"wrong source on {route}")
+        if download.html_attrs.get("data-android-available") != "true":
+            errors.append(f"Android must be enabled on {route}")
+        if not any(link.startswith(ANDROID_URL) for link in download.links):
+            errors.append(f"missing static Android destination on {route}")
+        raw = (ROOT / route).read_text(encoding="utf-8")
+        if 'data-android-status' not in raw or 'role="status"' not in raw or 'aria-live="polite"' not in raw:
+            errors.append(f"Android status must be announced on {route}")
+
+    spanish_download = documents.get("es/download/index.html")
+    if spanish_download is not None:
+        for attribute in (
+            "data-android-available-caption",
+            "data-android-available-status",
+            "data-android-aria-label",
+        ):
+            if not spanish_download.html_attrs.get(attribute):
+                errors.append(f"missing Spanish Android localization: {attribute}")
 
     error_page = ROOT / "404.html"
     if not error_page.is_file():
@@ -193,6 +214,9 @@ def main():
         errors.append("download router has no external HTTPS fallback for embedded iOS browsers")
     if 'link.hidden = true' not in download_script:
         errors.append("download router must hide the blocked Instagram App Store action")
+    for token in ("androidAvailableCaption", "androidAvailableStatus", "androidAriaLabel"):
+        if token not in download_script:
+            errors.append(f"download router is missing {token}")
 
     if errors:
         for error in errors:

@@ -6,6 +6,9 @@
   const iosURL = shell.dataset.iosUrl;
   const androidURL = shell.dataset.androidUrl;
   const androidAvailable = shell.dataset.androidAvailable === "true";
+  const androidAvailableCaption = shell.dataset.androidAvailableCaption || "Download for Android";
+  const androidAvailableStatus = shell.dataset.androidAvailableStatus || "Available now on Google Play.";
+  const androidAriaLabel = shell.dataset.androidAriaLabel || "Download Arenetto from Google Play";
   const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent)
     || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
   const isAndroid = /Android/i.test(navigator.userAgent);
@@ -55,9 +58,9 @@
         link.href = resolvedAndroidURL;
         link.classList.remove("is-disabled");
         link.removeAttribute("aria-disabled");
-        link.setAttribute("aria-label", "Download Arenetto from Google Play");
+        link.setAttribute("aria-label", androidAriaLabel);
         const caption = link.querySelector("[data-android-caption]");
-        if (caption) caption.textContent = "Download for Android";
+        if (caption) caption.textContent = androidAvailableCaption;
       } else {
         link.classList.add("is-disabled");
         link.setAttribute("aria-disabled", "true");
@@ -67,7 +70,7 @@
 
     const androidStatus = document.querySelector("[data-android-status]");
     if (androidStatus && androidAvailable) {
-      androidStatus.textContent = "Available now on Google Play.";
+      androidStatus.textContent = androidAvailableStatus;
     }
 
     const embeddedBrowserNote = document.querySelector("[data-embedded-browser-note]");
