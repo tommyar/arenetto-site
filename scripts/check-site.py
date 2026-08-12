@@ -46,8 +46,10 @@ class Document(HTMLParser):
             self.html_attrs = values
         if tag == "a" and values.get("href"):
             self.links.append(values["href"])
-        if tag in {"img", "link"} and values.get("href", values.get("src")):
-            self.assets.append(values.get("href", values.get("src")))
+        if tag in {"img", "link", "source", "video"}:
+            for attribute in ("href", "src", "poster"):
+                if values.get(attribute):
+                    self.assets.append(values[attribute])
         if tag == "script":
             if values.get("src"):
                 self.scripts.append(values["src"])
@@ -121,6 +123,29 @@ def main():
                     errors.append("homepage JSON-LD is missing @graph")
             except json.JSONDecodeError as exc:
                 errors.append(f"homepage JSON-LD is invalid: {exc}")
+        homepage_raw = (ROOT / "index.html").read_text(encoding="utf-8")
+        for token in (
+            'assets/homepage.js',
+            'assets/videos/arenetto-demo.mp4',
+            'data-video-sound-toggle',
+            'data-tuning-option',
+            'google-play-badge.png',
+        ):
+            if token not in homepage_raw:
+                errors.append(f"homepage is missing interactive media marker: {token}")
+
+    spanish_homepage = documents.get("es/index.html")
+    if spanish_homepage is not None:
+        spanish_raw = (ROOT / "es/index.html").read_text(encoding="utf-8")
+        for token in (
+            '../assets/homepage.js',
+            '../assets/videos/arenetto-demo.mp4',
+            'data-video-sound-toggle',
+            'data-tuning-option',
+            'google-play-badge-es.png',
+        ):
+            if token not in spanish_raw:
+                errors.append(f"Spanish homepage is missing interactive media marker: {token}")
 
     for source, campaign in SOCIAL_CAMPAIGNS.items():
         route = f"{source}/index.html"

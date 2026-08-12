@@ -28,7 +28,8 @@
     <link rel="alternate" hreflang="es" href="https://arenetto.app/es/">
     <link rel="alternate" hreflang="x-default" href="https://arenetto.app/">
     <link rel="icon" href="assets/images/app-icon.png" type="image/png">
-    <link rel="stylesheet" href="assets/site.css?v=20260811-1">
+    <link rel="stylesheet" href="assets/site.css?v=20260812-1">
+    <script src="assets/homepage.js?v=20260812-1" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -94,15 +95,24 @@
           <p class="lead">Practice a melody, work out an arrangement, or try a different sound. Arenetto puts 31 or 34 buttons, three tunings, and five registers on your iPhone, iPad, or Android device.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="download/">Download Arenetto</a>
-            <a class="button button-secondary" href="#play">See how it plays</a>
+            <a class="button button-secondary" href="#hero-demo">Watch it play <span aria-hidden="true">↗</span></a>
           </div>
           <p class="hero-note">Free on the App Store and Google Play · No ads · No account required</p>
         </div>
 
-        <figure class="hero-instrument">
+        <figure class="hero-instrument hero-demo" id="hero-demo">
           <div class="instrument-glow" aria-hidden="true"></div>
-          <img src="assets/images/instrument-34.jpg" width="1920" height="1080" alt="Arenetto digital diatonic accordion with 34 buttons and the Master register selected" fetchpriority="high">
-          <figcaption>34 buttons · G–C–F · Master</figcaption>
+          <video class="hero-demo-video" width="2532" height="1170" autoplay loop muted playsinline preload="metadata" poster="assets/images/instrument-34.jpg" aria-label="Arenetto app demo showing rapid playing across the accordion buttons">
+            <source src="assets/videos/arenetto-demo.mp4" type="video/mp4">
+          </video>
+          <button class="video-sound-toggle" type="button" data-video-sound-toggle aria-pressed="false" aria-label="Turn demo sound on">
+            <span class="video-sound-icon" aria-hidden="true">♪</span>
+            <span data-sound-label>Turn sound on</span>
+          </button>
+          <figcaption>
+            <span>Live app capture · 34 buttons · G–C–F · Master</span>
+            <span class="video-live-label"><span aria-hidden="true"></span> Auto-playing demo</span>
+          </figcaption>
         </figure>
 
         <dl class="instrument-facts" aria-label="Arenetto instrument options">
@@ -144,6 +154,63 @@
             </div>
           </article>
         </div>
+
+        <div class="feature-demo-block">
+          <div class="section-intro feature-demo-intro">
+            <p class="eyebrow"><span></span> See it in motion</p>
+            <h3>Three gestures. One instrument.</h3>
+            <p>Every core control stays close to the playing surface, so the movement from idea to performance feels immediate.</p>
+          </div>
+
+          <div class="feature-demos" aria-label="Interactive Arenetto feature demos">
+            <article class="feature-demo" data-feature-demo="chord">
+              <div class="feature-demo-heading">
+                <span class="play-number">01</span>
+                <h3>Use more than one finger</h3>
+              </div>
+              <div class="feature-demo-visual demo-chord" role="img" aria-label="Several accordion buttons glow together to show a chord">
+                <div class="demo-button-grid" aria-hidden="true">
+                  <span class="demo-button"></span><span class="demo-button"></span><span class="demo-button"></span><span class="demo-button"></span><span class="demo-button"></span><span class="demo-button"></span>
+                  <span class="demo-button"></span><span class="demo-button"></span><span class="demo-button demo-button-active"></span><span class="demo-button demo-button-active"></span><span class="demo-button"></span><span class="demo-button"></span>
+                  <span class="demo-button"></span><span class="demo-button"></span><span class="demo-button"></span><span class="demo-button"></span><span class="demo-button"></span><span class="demo-button"></span>
+                </div>
+              </div>
+              <p>Hold several buttons for a chord, or move across them for a run.</p>
+              <button class="demo-replay" type="button" data-demo-replay>Replay demo</button>
+            </article>
+
+            <article class="feature-demo" data-feature-demo="bellows">
+              <div class="feature-demo-heading">
+                <span class="play-number">02</span>
+                <h3>Switch push and pull</h3>
+              </div>
+              <div class="feature-demo-visual demo-bellows" role="img" aria-label="The bellows direction changes from pull to push">
+                <div class="demo-bellows-labels"><span>Pull</span><span>Push</span></div>
+                <div class="demo-bellows-track" aria-hidden="true">
+                  <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <div class="demo-bellows-arrow" aria-hidden="true">← &nbsp; →</div>
+              </div>
+              <p>Change bellows direction at any time while your fingers stay on the buttons.</p>
+              <button class="demo-replay" type="button" data-demo-replay>Replay demo</button>
+            </article>
+
+            <article class="feature-demo" data-feature-demo="register">
+              <div class="feature-demo-heading">
+                <span class="play-number">03</span>
+                <h3>Change registers</h3>
+              </div>
+              <div class="feature-demo-visual demo-register" role="img" aria-label="The selected accordion register moves across the register selector">
+                <div class="demo-register-strip" aria-hidden="true">
+                  <span class="demo-register-dot"></span><span class="demo-register-dot"></span><span class="demo-register-dot"></span><span class="demo-register-dot"></span><span class="demo-register-dot"></span>
+                </div>
+                <div class="demo-register-name"><span>Register</span><strong>Master</strong></div>
+              </div>
+              <p>Bassoon, Bandoneon, Master, Violin, and Clarinet are one tap away.</p>
+              <button class="demo-replay" type="button" data-demo-replay>Replay demo</button>
+            </article>
+          </div>
+        </div>
       </section>
 
       <section class="setup-section" id="setup" aria-labelledby="setup-title">
@@ -153,6 +220,37 @@
             <h2 id="setup-title">Choose your tuning.</h2>
           </div>
           <p>Use G–C–F, F–B♭–E♭, or E–A–D. Choose 31 or 34 buttons, adjust their size, and show note names when you need them.</p>
+        </div>
+
+        <div class="tuning-demo" data-tuning-demo>
+          <div class="tuning-demo-copy">
+            <p class="eyebrow"><span></span> Try a tuning</p>
+            <h3 data-tuning-title>G–C–F</h3>
+            <p data-tuning-description>Norteño tuning for a familiar, bright starting point.</p>
+            <div class="tuning-options" role="tablist" aria-label="Choose a tuning">
+              <button class="tuning-option is-selected" type="button" role="tab" aria-selected="true" aria-controls="tuning-preview" data-tuning-option data-tuning="gcf" data-title="G–C–F" data-description="Norteño tuning for a familiar, bright starting point." data-family="Norteño" data-notes="G|C|F">
+                <span>G–C–F</span><small>Norteño</small>
+              </button>
+              <button class="tuning-option" type="button" role="tab" aria-selected="false" aria-controls="tuning-preview" data-tuning-option data-tuning="f-bb-eb" data-title="F–B♭–E♭" data-description="A lower set of voices for a rounder, deeper response." data-family="Norteño" data-notes="F|B♭|E♭">
+                <span>F–B♭–E♭</span><small>Norteño</small>
+              </button>
+              <button class="tuning-option" type="button" role="tab" aria-selected="false" aria-controls="tuning-preview" data-tuning-option data-tuning="ead" data-title="E–A–D" data-description="A higher setup for a clear, nimble feel under the fingers." data-family="Norteño" data-notes="E|A|D">
+                <span>E–A–D</span><small>Norteño</small>
+              </button>
+            </div>
+            <p class="tuning-demo-status" data-tuning-status role="status" aria-live="polite">G–C–F selected. The note preview updates with your choice.</p>
+          </div>
+          <div class="tuning-preview" id="tuning-preview" data-tuning-preview data-tuning="gcf" role="region" aria-label="Arenetto tuning preview showing G–C–F">
+            <div class="preview-header"><span>ARENETTO</span><strong data-preview-tuning>G–C–F</strong></div>
+            <div class="preview-registers" aria-hidden="true"><span></span><span></span><span class="is-selected"></span><span></span><span></span></div>
+            <div class="preview-note-strip" aria-live="polite"><span data-preview-note>G</span><span data-preview-note>C</span><span data-preview-note>F</span></div>
+            <div class="preview-button-board" aria-hidden="true">
+              <div class="preview-row preview-row-short"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="preview-row"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="preview-row preview-row-short"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            </div>
+            <div class="preview-footer"><span data-preview-family>Norteño</span><span>31 / 34 buttons</span></div>
+          </div>
         </div>
 
         <div class="setup-gallery">
@@ -175,8 +273,8 @@
             <p>Arenetto includes Norteño, Vallenato, and other accordion sounds, along with the tunings, registers, and push-and-pull control that shape the way you play. Choose your sound, set your tuning and layout, and start playing.</p>
           </div>
           <figure class="music-image">
-            <img src="assets/images/instrument-34.jpg" width="1920" height="1080" alt="Arenetto's three-row accordion interface with pearl buttons and the Master register selected" loading="lazy" decoding="async">
-            <figcaption>Three rows · Master register · G–C–F</figcaption>
+            <img src="assets/images/instrument-31.jpg" width="1920" height="1080" alt="Arenetto's three-row accordion interface with 31 pearl buttons and the Master register selected" loading="lazy" decoding="async">
+            <figcaption>31 buttons · Master register · G–C–F</figcaption>
           </figure>
         </div>
       </section>
@@ -201,7 +299,9 @@
           <a class="app-store-link" href="https://apps.apple.com/us/app/arenetto/id6791795300" aria-label="Download Arenetto from the App Store">
             <img class="app-store-badge" src="assets/images/app-store-badge.svg" width="180" height="60" alt="Download on the App Store">
           </a>
-          <a class="button button-secondary" href="https://play.google.com/store/apps/details?id=com.tomasarenas.arenetto" aria-label="Download Arenetto from Google Play">Google Play</a>
+          <a class="store-badge-link" href="https://play.google.com/store/apps/details?id=com.tomasarenas.arenetto" aria-label="Get Arenetto on Google Play">
+            <img class="google-play-badge" src="assets/images/google-play-badge.png" width="646" height="250" alt="Get it on Google Play">
+          </a>
         </div>
       </section>
     </main>

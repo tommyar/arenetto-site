@@ -30,7 +30,8 @@
     <link rel="alternate" hreflang="es" href="https://arenetto.app/es/">
     <link rel="alternate" hreflang="x-default" href="https://arenetto.app/">
     <link rel="icon" href="../assets/images/app-icon.png" type="image/png">
-    <link rel="stylesheet" href="../assets/site.css?v=20260811-1">
+    <link rel="stylesheet" href="../assets/site.css?v=20260812-1">
+    <script src="../assets/homepage.js?v=20260812-1" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -97,15 +98,24 @@
           <p class="lead">Practica una melodía, arma un arreglo o prueba otro sonido. Arenetto pone 31 o 34 botones, tres afinaciones y cinco registros en tu iPhone, iPad o dispositivo Android.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="download/">Descarga Arenetto</a>
-            <a class="button button-secondary" href="#play">Mira cómo se toca</a>
+            <a class="button button-secondary" href="#hero-demo">Mira cómo toca <span aria-hidden="true">↗</span></a>
           </div>
           <p class="hero-note">Gratis en App Store y Google Play · Sin anuncios · Sin crear una cuenta</p>
         </div>
 
-        <figure class="hero-instrument">
+        <figure class="hero-instrument hero-demo" id="hero-demo">
           <div class="instrument-glow" aria-hidden="true"></div>
-          <img src="../assets/images/instrument-34.jpg" width="1920" height="1080" alt="Interfaz de Arenetto con 34 botones y el registro Master seleccionado" fetchpriority="high">
-          <figcaption>34 botones · G–C–F · Master</figcaption>
+          <video class="hero-demo-video" width="2532" height="1170" autoplay loop muted playsinline preload="metadata" poster="../assets/images/instrument-34.jpg" aria-label="Demostración de Arenetto tocando rápidamente los botones del acordeón">
+            <source src="../assets/videos/arenetto-demo.mp4" type="video/mp4">
+          </video>
+          <button class="video-sound-toggle" type="button" data-video-sound-toggle aria-pressed="false" aria-label="Activar el sonido de la demostración">
+            <span class="video-sound-icon" aria-hidden="true">♪</span>
+            <span data-sound-label>Activar sonido</span>
+          </button>
+          <figcaption>
+            <span>Captura de la app · 34 botones · G–C–F · Master</span>
+            <span class="video-live-label"><span aria-hidden="true"></span> Demostración automática</span>
+          </figcaption>
         </figure>
 
         <dl class="instrument-facts" aria-label="Características principales de Arenetto">
@@ -147,6 +157,63 @@
             </div>
           </article>
         </div>
+
+        <div class="feature-demo-block">
+          <div class="section-intro feature-demo-intro">
+            <p class="eyebrow"><span></span> Mira cómo funciona</p>
+            <h3>Tres gestos. Un instrumento.</h3>
+            <p>Los controles principales permanecen cerca de la superficie de interpretación para que pasar de una idea a una ejecución sea inmediato.</p>
+          </div>
+
+          <div class="feature-demos" aria-label="Demostraciones interactivas de Arenetto">
+            <article class="feature-demo" data-feature-demo="chord">
+              <div class="feature-demo-heading">
+                <span class="play-number">01</span>
+                <h3>Usa más de un dedo</h3>
+              </div>
+              <div class="feature-demo-visual demo-chord" role="img" aria-label="Varios botones del acordeón se iluminan juntos para mostrar un acorde">
+                <div class="demo-button-grid" aria-hidden="true">
+                  <span class="demo-button"></span><span class="demo-button"></span><span class="demo-button"></span><span class="demo-button"></span><span class="demo-button"></span><span class="demo-button"></span>
+                  <span class="demo-button"></span><span class="demo-button"></span><span class="demo-button demo-button-active"></span><span class="demo-button demo-button-active"></span><span class="demo-button"></span><span class="demo-button"></span>
+                  <span class="demo-button"></span><span class="demo-button"></span><span class="demo-button"></span><span class="demo-button"></span><span class="demo-button"></span><span class="demo-button"></span>
+                </div>
+              </div>
+              <p>Mantén presionados varios botones para formar un acorde o muévete entre ellos para hacer un pasaje.</p>
+              <button class="demo-replay" type="button" data-demo-replay>Repetir demostración</button>
+            </article>
+
+            <article class="feature-demo" data-feature-demo="bellows">
+              <div class="feature-demo-heading">
+                <span class="play-number">02</span>
+                <h3>Alterna abrir y cerrar</h3>
+              </div>
+              <div class="feature-demo-visual demo-bellows" role="img" aria-label="La dirección del fuelle cambia de cerrar a abrir">
+                <div class="demo-bellows-labels"><span>Cerrar</span><span>Abrir</span></div>
+                <div class="demo-bellows-track" aria-hidden="true">
+                  <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <div class="demo-bellows-arrow" aria-hidden="true">← &nbsp; →</div>
+              </div>
+              <p>Cambia la dirección del fuelle en cualquier momento sin quitar los dedos de los botones.</p>
+              <button class="demo-replay" type="button" data-demo-replay>Repetir demostración</button>
+            </article>
+
+            <article class="feature-demo" data-feature-demo="register">
+              <div class="feature-demo-heading">
+                <span class="play-number">03</span>
+                <h3>Cambia de registro</h3>
+              </div>
+              <div class="feature-demo-visual demo-register" role="img" aria-label="El registro seleccionado se mueve por el selector de registros">
+                <div class="demo-register-strip" aria-hidden="true">
+                  <span class="demo-register-dot"></span><span class="demo-register-dot"></span><span class="demo-register-dot"></span><span class="demo-register-dot"></span><span class="demo-register-dot"></span>
+                </div>
+                <div class="demo-register-name"><span>Registro</span><strong>Master</strong></div>
+              </div>
+              <p>Bassoon, Bandoneón, Master, Violín y Clarinete están siempre a un solo toque.</p>
+              <button class="demo-replay" type="button" data-demo-replay>Repetir demostración</button>
+            </article>
+          </div>
+        </div>
       </section>
 
       <section class="setup-section" id="setup" aria-labelledby="setup-title">
@@ -156,6 +223,37 @@
             <h2 id="setup-title">Elige tu afinación.</h2>
           </div>
           <p>Usa Sol–Do–Fa (G–C–F), Fa–Si♭–Mi♭ (F–B♭–E♭) o Mi–La–Re (E–A–D). Elige 31 o 34 botones, ajusta su tamaño y muestra los nombres de las notas cuando los necesites.</p>
+        </div>
+
+        <div class="tuning-demo" data-tuning-demo>
+          <div class="tuning-demo-copy">
+            <p class="eyebrow"><span></span> Prueba una afinación</p>
+            <h3 data-tuning-title>G–C–F</h3>
+            <p data-tuning-description>Afinación Norteño para empezar con un sonido familiar y brillante.</p>
+            <div class="tuning-options" role="tablist" aria-label="Elige una afinación">
+              <button class="tuning-option is-selected" type="button" role="tab" aria-selected="true" aria-controls="tuning-preview" data-tuning-option data-tuning="gcf" data-title="G–C–F" data-description="Afinación Norteño para empezar con un sonido familiar y brillante." data-family="Norteño" data-notes="G|C|F">
+                <span>G–C–F</span><small>Norteño</small>
+              </button>
+              <button class="tuning-option" type="button" role="tab" aria-selected="false" aria-controls="tuning-preview" data-tuning-option data-tuning="f-bb-eb" data-title="F–B♭–E♭" data-description="Un conjunto más grave para una respuesta más redonda y profunda." data-family="Norteño" data-notes="F|B♭|E♭">
+                <span>F–B♭–E♭</span><small>Norteño</small>
+              </button>
+              <button class="tuning-option" type="button" role="tab" aria-selected="false" aria-controls="tuning-preview" data-tuning-option data-tuning="ead" data-title="E–A–D" data-description="Una configuración más alta para una sensación clara y ágil bajo los dedos." data-family="Norteño" data-notes="E|A|D">
+                <span>E–A–D</span><small>Norteño</small>
+              </button>
+            </div>
+            <p class="tuning-demo-status" data-tuning-status role="status" aria-live="polite">G–C–F seleccionada. La vista previa de notas cambia con tu elección.</p>
+          </div>
+          <div class="tuning-preview" id="tuning-preview" data-tuning-preview data-tuning="gcf" role="region" aria-label="Vista previa de la afinación G–C–F en Arenetto">
+            <div class="preview-header"><span>ARENETTO</span><strong data-preview-tuning>G–C–F</strong></div>
+            <div class="preview-registers" aria-hidden="true"><span></span><span></span><span class="is-selected"></span><span></span><span></span></div>
+            <div class="preview-note-strip" aria-live="polite"><span data-preview-note>G</span><span data-preview-note>C</span><span data-preview-note>F</span></div>
+            <div class="preview-button-board" aria-hidden="true">
+              <div class="preview-row preview-row-short"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="preview-row"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="preview-row preview-row-short"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            </div>
+            <div class="preview-footer"><span data-preview-family>Norteño</span><span>31 / 34 botones</span></div>
+          </div>
         </div>
 
         <div class="setup-gallery">
@@ -178,8 +276,8 @@
             <p>Arenetto incluye Norteño, Vallenato y otros sonidos de acordeón, además de distintas afinaciones y registros. Elige el sonido, configura tu afinación y la distribución de botones, y empieza a tocar.</p>
           </div>
           <figure class="music-image">
-            <img src="../assets/images/instrument-34.jpg" width="1920" height="1080" alt="Interfaz de Arenetto con tres hileras de botones aperlados y el registro Master seleccionado" loading="lazy" decoding="async">
-            <figcaption>Tres hileras · Master · G–C–F</figcaption>
+            <img src="../assets/images/instrument-31.jpg" width="1920" height="1080" alt="Interfaz de Arenetto con 31 botones aperlados y el registro Master seleccionado" loading="lazy" decoding="async">
+            <figcaption>31 botones · Master · G–C–F</figcaption>
           </figure>
         </div>
       </section>
@@ -204,7 +302,9 @@
           <a class="app-store-link" href="https://apps.apple.com/us/app/arenetto/id6791795300" aria-label="Descarga Arenetto en App Store">
             <img class="app-store-badge" src="../assets/images/app-store-badge.svg" width="180" height="60" alt="Descargar en App Store">
           </a>
-          <a class="button button-secondary" href="https://play.google.com/store/apps/details?id=com.tomasarenas.arenetto" aria-label="Descarga Arenetto en Google Play">Google Play</a>
+          <a class="store-badge-link" href="https://play.google.com/store/apps/details?id=com.tomasarenas.arenetto" aria-label="Descarga Arenetto en Google Play">
+            <img class="google-play-badge" src="../assets/images/google-play-badge-es.png" width="646" height="250" alt="Descargar en Google Play">
+          </a>
         </div>
       </section>
     </main>

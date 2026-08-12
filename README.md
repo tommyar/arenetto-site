@@ -21,14 +21,15 @@ remote UI assets.
   App Store campaign link and Google Play UTM parameters.
 - `assets/images/` contains optimized copies of the production Arenetto icon
   and approved app screenshots. It also contains the official Apple App Store
-  badge used by the homepage. The source assets remain in the main
+  badge and official Google Play badges used by the homepage. The homepage
+  also uses the owned `assets/videos/arenetto-demo.mp4` interaction capture and
+  a distinct 31-button screenshot. The source assets remain in the main
   `digitalAccordion` repository.
 - `robots.txt` and `sitemap.xml` expose the public pages to search engines.
 
 The App Store listing is public for iPhone and iPad, and the Google Play listing
-is public for Android. The homepage uses Apple's official download badge and
-Smart App Banner for Apple ID `6791795300`; Google Play uses the site’s
-text-based store button.
+is public for Android. The homepage uses the official Apple and Google Play
+download badges plus Smart App Banner for Apple ID `6791795300`.
 
 The smart-link pages intentionally do not add analytics, cookies, or tracking
 scripts. Attribution is passed to Apple through App Store Connect campaign
