@@ -15,7 +15,8 @@ remote UI assets.
   <https://apps.apple.com/us/app/arenetto/id6791795300> and
   <https://play.google.com/store/apps/details?id=com.tomasarenas.arenetto>.
 - `privacy/` and `support/` are the canonical cross-platform policy and help
-  pages linked from the apps.
+  pages linked from the apps. `terms/` contains the website terms in English
+  and Spanish.
 - `download/` is the device-aware download page. `/instagram/`, `/facebook/`,
   `/youtube/`, and `/tiktok/` are clean social routes that use the matching
   App Store campaign link and Google Play UTM parameters.
@@ -49,6 +50,7 @@ Then open:
 
 - `http://localhost:8080/`
 - `http://localhost:8080/privacy/`
+- `http://localhost:8080/terms/`
 - `http://localhost:8080/support/`
 
 ## Checks

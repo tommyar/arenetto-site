@@ -2,34 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://arenetto.app/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-09-22</lastmod>
   </url>
   <url>
     <loc>https://arenetto.app/privacy/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-09-22</lastmod>
+  </url>
+  <url>
+    <loc>https://arenetto.app/terms/</loc>
+    <lastmod>2026-09-22</lastmod>
   </url>
   <url>
     <loc>https://arenetto.app/support/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-09-22</lastmod>
   </url>
   <url>
     <loc>https://arenetto.app/download/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-09-22</lastmod>
   </url>
   <url>
     <loc>https://arenetto.app/es/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-09-22</lastmod>
   </url>
   <url>
     <loc>https://arenetto.app/es/privacy/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-09-22</lastmod>
+  </url>
+  <url>
+    <loc>https://arenetto.app/es/terms/</loc>
+    <lastmod>2026-09-22</lastmod>
   </url>
   <url>
     <loc>https://arenetto.app/es/support/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-09-22</lastmod>
   </url>
   <url>
     <loc>https://arenetto.app/es/download/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-09-22</lastmod>
   </url>
 </urlset>

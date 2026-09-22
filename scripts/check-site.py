@@ -21,10 +21,12 @@ ROUTES = [
     "index.html",
     "download/index.html",
     "privacy/index.html",
+    "terms/index.html",
     "support/index.html",
     "es/index.html",
     "es/download/index.html",
     "es/privacy/index.html",
+    "es/terms/index.html",
     "es/support/index.html",
 ]
 
