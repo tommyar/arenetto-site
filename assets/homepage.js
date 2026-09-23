@@ -45,13 +45,20 @@
 
   document.querySelectorAll("[data-feature-demo]").forEach((demo) => {
     const replay = demo.querySelector("[data-demo-replay]");
+    if (!replay) return;
+
+    let finishTimer;
     const restart = () => {
+      if (reduceMotion.matches) return;
+      window.clearTimeout(finishTimer);
       demo.classList.remove("is-playing");
-      window.requestAnimationFrame(() => demo.classList.add("is-playing"));
+      window.requestAnimationFrame(() => {
+        demo.classList.add("is-playing");
+        finishTimer = window.setTimeout(() => demo.classList.remove("is-playing"), 1250);
+      });
     };
 
-    restart();
-    replay?.addEventListener("click", restart);
+    replay.addEventListener("click", restart);
   });
 
   document.querySelectorAll("[data-tuning-demo]").forEach((demo) => {
