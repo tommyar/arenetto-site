@@ -1125,6 +1125,26 @@ figcaption {
 .download-status { margin: 1.25rem 0 0; }
 .download-fineprint { margin: 2rem 0 0; }
 
+.download-details {
+  max-width: 38rem;
+  margin-top: 2rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--line);
+  color: var(--ivory-soft);
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.download-details h2 {
+  max-width: none;
+  margin: 0 0 0.7rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.1;
+}
+
+.download-details p { margin: 0; }
+.download-details p + p { margin-top: 0.75rem; }
+
 .download-back {
   display: inline-flex;
   align-items: center;
