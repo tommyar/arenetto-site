@@ -1,0 +1,18 @@
+{
+  "en": {
+    "previousDate": "Effective date: July 22, 2026",
+    "date": "Effective date: October 2, 2026",
+    "previousStatement": "Arenetto does not add analytics, advertising, tracking scripts, cookies, or other third-party scripts to this website.",
+    "statement": "Arenetto does not add analytics, advertising or tracking scripts to this website. Fonts and preview images are hosted locally. An optional YouTube player connects to YouTube only when a visitor chooses to play a video; that external player is subject to YouTube’s own privacy practices.",
+    "heading": "Optional external videos",
+    "disclosure": "No YouTube player is loaded on the initial page. Choosing to watch a video loads the privacy-enhanced YouTube player, which may process technical information according to YouTube’s policies. Closing the player stops playback and removes it from the page. Social and store links open external services with their own policies."
+  },
+  "es": {
+    "previousDate": "Fecha de entrada en vigor: 22 de julio de 2026",
+    "date": "Fecha de entrada en vigor: 2 de octubre de 2026",
+    "previousStatement": "Arenetto no añade análisis, publicidad, scripts de rastreo, cookies ni otros scripts de terceros a este sitio web.",
+    "statement": "Arenetto no añade análisis, publicidad ni scripts de rastreo a este sitio web. Las fuentes y vistas previas se alojan localmente. Un reproductor opcional de YouTube se conecta a YouTube solo cuando eliges reproducir un video; ese reproductor externo está sujeto a las prácticas de privacidad de YouTube.",
+    "heading": "Videos externos opcionales",
+    "disclosure": "No se carga ningún reproductor de YouTube al abrir la página. Al elegir un video, se carga el reproductor de YouTube con privacidad mejorada, que puede procesar información técnica según las políticas de YouTube. Al cerrarlo, la reproducción se detiene y el reproductor se elimina de la página. Los enlaces a redes sociales y tiendas abren servicios externos con sus propias políticas."
+  }
+}
