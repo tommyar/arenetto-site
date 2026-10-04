@@ -154,7 +154,12 @@ def main():
             panels = [a for _, a in document.elements if a.get("id", "").startswith("family-")]
             require(len(panels) == 2 and all("hidden" not in a for a in panels), f"no-JS family content missing: {route}")
             require(len(document.attrs("details")) == 6, f"FAQ count changed: {route}")
-            require(len(document.attrs("blockquote")) == 2, f"review count changed: {route}")
+            reviews = [a for a in document.attrs("figure") if a.get("class") == "review"]
+            require(bool(reviews) and len(document.attrs("blockquote")) == len(reviews), f"review quotation missing: {route}")
+            review_ids = [a.get("data-review-id") for a in reviews]
+            require(all(review_ids) and len(review_ids) == len(set(review_ids)), f"missing or duplicate review identity: {route}")
+            require({a.get("data-review-store") for a in reviews} == {"App Store", "Google Play"}, f"review store attribution missing: {route}")
+            require(all(a.get("lang") == lang for a in document.attrs("blockquote")), f"review not localized to page language: {route}")
 
         for policy in ("privacy", "terms", "support"):
             if route == f"{'es/' if lang == 'es' else ''}{policy}/index.html":

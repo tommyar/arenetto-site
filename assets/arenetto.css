@@ -130,12 +130,13 @@ figcaption{font-size:10px;color:var(--muted)}
 .social-row>div{display:flex;flex-wrap:wrap;gap:10px 26px;white-space:nowrap}
 .social-row a{color:var(--gold);min-height:44px;display:inline-flex;align-items:center;gap:12px}
 .reviews-section{background:var(--paper);color:var(--ink);color-scheme:light}
-.reviews-grid{display:grid;grid-template-columns:1fr 1fr;gap:7%}
+.reviews-grid{display:grid;grid-template-columns:1fr 1fr;column-gap:7%;row-gap:40px}
 .review{border-top:1px solid #23251e30;padding-top:27px;display:flex;flex-direction:column}
 .stars{font-size:12px;letter-spacing:3px;color:#8b7249}
 .review blockquote{font-family:var(--display);font-size:clamp(26px,2.5vw,36px);line-height:1.2;margin:23px 0 17px;max-width:440px}
-.review-translation{font-size:11px;color:#6b6c61;max-width:380px}
-.review-translation span{display:block;font-size:9px;margin-top:4px}
+.review-translation{font-size:10px;color:#6b6c61;margin-bottom:10px}
+.review-original{font-size:11px;color:#6b6c61;max-width:440px;line-height:1.6}
+.review-original span{display:block;font-size:9px;margin-bottom:4px}
 .review figcaption{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:auto;padding-top:23px;color:#6b6c61;font-size:10px}
 .review figcaption strong{font-weight:600;color:var(--ink)}
 .review figcaption a{min-height:44px;display:inline-flex;align-items:center;gap:5px}

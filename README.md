@@ -13,7 +13,7 @@ for the design and `assets/arenetto.js` for interactions.
 ```sh
 node scripts/build-site.mjs
 python3 scripts/check-site.py
-node --test scripts/test-interactions.mjs
+node --test scripts/test-*.mjs
 git diff --check
 ```
 
@@ -50,9 +50,11 @@ paths are root-relative, and `file://` is not a supported preview environment.
   Selecting a video loads YouTube's privacy-enhanced player. Closing the dialog
   removes the iframe, stops playback and returns keyboard focus. All videos
   also work as normal external links without JavaScript.
-- Review excerpts are exact, short and attributed. Spanish originals remain
-  visible on both pages; English translations are explicitly labeled. There
-  are no invented reviews, aggregate ratings or anonymous creator endorsements.
+- Review excerpts from App Store and Google Play are short and attributed.
+  English shows explicitly labeled translations with the Spanish originals
+  underneath; Spanish shows the exact originals. Public source links and
+  verification dates are recorded in `content/site.mjs`. There are no invented
+  reviews, aggregate ratings, owner self-reviews or anonymous endorsements.
 
 See `docs/rebuild-2026-10-02.md` for asset sources, evidence and open content needs.
 

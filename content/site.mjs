@@ -25,7 +25,7 @@ export const reviews = [
     id: '14559002437', author: 'soffiaaaaa_', title: 'Aprendiendo🙂', rating: 5,
     quote: 'los videos de ig me han ayudado para aprender',
     translation: 'The Instagram videos have helped me learn.',
-    date: '2026-09-16', store: 'App Store', country: 'MX',
+    date: '2026-09-16', store: 'App Store', country: 'MX', language: 'es',
     source: 'https://itunes.apple.com/mx/rss/customerreviews/id=6791795300/sortby=mostrecent/json',
     url: 'https://apps.apple.com/mx/app/arenetto/id6791795300?see-all=reviews',
   },
@@ -33,9 +33,25 @@ export const reviews = [
     id: '14528112903', author: 'Emilianodlrs', title: 'Está chido', rating: 5,
     quote: 'No pagas nada y tienes todos los sonidos que se escuchan igual',
     translation: 'You pay nothing and get all the sounds, which sound the same.',
-    date: '2026-09-08', store: 'App Store', country: 'MX',
+    date: '2026-09-08', store: 'App Store', country: 'MX', language: 'es',
     source: 'https://itunes.apple.com/mx/rss/customerreviews/id=6791795300/sortby=mostrecent/json',
     url: 'https://apps.apple.com/mx/app/arenetto/id6791795300?see-all=reviews',
+  },
+  {
+    id: '1ea280c9-bdaf-477d-8ade-91f86e9a7de4', author: 'Juan Alvarado', rating: 5,
+    quote: 'Excelente motor de sonido y muy buena respuesta.',
+    translation: 'Excellent sound engine and great responsiveness.',
+    date: '2026-08-18', store: 'Google Play', language: 'es', verifiedOn: '2026-10-04',
+    source: 'https://play.google.com/store/apps/details?id=com.tomasarenas.arenetto&hl=es_419&gl=MX',
+    url: 'https://play.google.com/store/apps/details?id=com.tomasarenas.arenetto&hl=es_419&gl=MX',
+  },
+  {
+    id: 'd425665d-0fda-4723-8d2b-a52504578a3f', author: 'Maximiliano López', rating: 5,
+    quote: 'es perfecta sigan asi',
+    translation: 'It’s perfect. Keep it up!',
+    date: '2026-08-24', store: 'Google Play', language: 'es', verifiedOn: '2026-10-04',
+    source: 'https://play.google.com/store/apps/details?id=com.tomasarenas.arenetto&hl=es_419&gl=MX',
+    url: 'https://play.google.com/store/apps/details?id=com.tomasarenas.arenetto&hl=es_419&gl=MX',
   },
 ];
 
@@ -71,7 +87,7 @@ export const copy = {
     sessionsText: 'Real performances from Arenetto Accordion. Pick a session, turn up the sound, and hear the instrument in action.',
     playVideo: 'Watch', youtube: 'Watch on YouTube', socialInvite: 'Playing something you love? Share it with #arenetto.', socialHeading: 'Follow the music',
     reviewEye: 'WORDS FROM THE PEOPLE PLAYING.', reviewTitle: ['Small screen.', 'Real connection.'],
-    reviewText: 'A few words from players, shared in their own language.', original: 'Original Spanish review', translated: 'English translation', reviewSource: 'Read the original review', reviewDisclaimer: 'Selected review excerpts · App Store, Mexico · September 2026. Individual experiences, not a guarantee.',
+    reviewText: 'A few words from Arenetto players on the App Store and Google Play.', original: 'Original Spanish excerpt', translated: 'Translated from Spanish', reviewSource: 'Read the original review', reviewDisclaimer: 'Selected excerpts from App Store and Google Play reviews. English translations of Spanish originals. Individual experiences, not a guarantee.',
     privacyTitle: 'Just you and the music.', privacyItems: [['No ads', 'Nothing to sell you while you play.'], ['No account', 'Open the app and start playing.'], ['Your settings stay yours', 'Saved on your device. No app tracking.']],
     faqEye: 'A FEW THINGS WORTH KNOWING.', faqTitle: 'Before your first note.',
     faq: [
@@ -121,7 +137,7 @@ export const copy = {
     sessionsText: 'Interpretaciones reales de Arenetto Accordion. Elige un video, sube el volumen y escucha el instrumento en acción.',
     playVideo: 'Ver', youtube: 'Ver en YouTube', socialInvite: '¿Estás tocando algo que te gusta? Compártelo con #arenetto.', socialHeading: 'Sigue la música',
     reviewEye: 'PALABRAS DE QUIENES LO TOCAN.', reviewTitle: ['Una pantalla pequeña.', 'Una conexión real.'],
-    reviewText: 'Algunas palabras de quienes tocan, en su propio idioma.', original: 'Reseña original en español', translated: 'Traducción al inglés', reviewSource: 'Leer la reseña original', reviewDisclaimer: 'Extractos de reseñas seleccionadas · App Store, México · Septiembre de 2026. Son experiencias individuales, no una garantía.',
+    reviewText: 'Algunas palabras de quienes usan Arenetto, en App Store y Google Play.', original: 'Extracto original en español', translated: 'Traducción del español', reviewSource: 'Leer la reseña original', reviewDisclaimer: 'Extractos seleccionados de reseñas en App Store y Google Play. Se conserva el texto original en español. Son experiencias individuales, no una garantía.',
     privacyTitle: 'Solo tú y la música.', privacyItems: [['Sin anuncios', 'Nada que venderte mientras tocas.'], ['Sin cuenta', 'Abre la app y empieza a tocar.'], ['Tus ajustes son tuyos', 'Se guardan en tu dispositivo. La app no te rastrea.']],
     faqEye: 'ALGUNAS COSAS QUE VALE LA PENA SABER.', faqTitle: 'Antes de tu primera nota.',
     faq: [
